@@ -1,0 +1,94 @@
+{
+  "officers": [
+    {
+      "role": "Chapter President",
+      "name": "April Cervantes",
+      "description": "Executive Leader",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20Chapter%20President%20Inquiry"
+    },
+    {
+      "role": "Vice President",
+      "name": "Jarron Jackson",
+      "description": "Operations & Events",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20VP%20Inquiry"
+    },
+    {
+      "role": "Treasurer",
+      "name": "TBD",
+      "description": "Finance & Budget",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20Treasurer%20Inquiry"
+    },
+    {
+      "role": "Secretary",
+      "name": "TBD",
+      "description": "Communications & Records",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20Secretary%20Inquiry"
+    },
+    {
+      "role": "Sergeant at Arms",
+      "name": "TBD",
+      "description": "Protocol & Logistics",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20Sergeant%20at%20Arms%20Inquiry"
+    },
+    {
+      "role": "Social Media Chair",
+      "name": "TBD",
+      "description": "Digital Outreach",
+      "campus": "St. Petersburg College",
+      "photo": "",
+      "email_subject": "SVA%20Social%20Media%20Inquiry"
+    }
+  ],
+  "advisors": [
+    {
+      "role": "Chapter Advisor · Clearwater SCO",
+      "name": "Trevor McGilvrey",
+      "campus": "Clearwater Campus",
+      "photo": "",
+      "email_label": "Email Trevor",
+      "email_subject": "Clearwater%20SVA%20Advisor%20Inquiry"
+    },
+    {
+      "role": "School Certifying Official",
+      "name": "TBD",
+      "campus": "Clearwater Campus",
+      "photo": "",
+      "email_label": "Contact SCO",
+      "email_subject": "Clearwater%20VA%20Certification"
+    },
+    {
+      "role": "School Certifying Official",
+      "name": "TBD",
+      "campus": "Seminole Campus",
+      "photo": "",
+      "email_label": "Contact SCO",
+      "email_subject": "Seminole%20VA%20Certification"
+    },
+    {
+      "role": "School Certifying Official",
+      "name": "TBD",
+      "campus": "Seminole Campus",
+      "photo": "",
+      "email_label": "Contact SCO",
+      "email_subject": "Seminole%20VA%20Certification%202"
+    },
+    {
+      "role": "School Certifying Official",
+      "name": "TBD",
+      "campus": "St. Pete / Gibbs Campus",
+      "photo": "",
+      "email_label": "Contact SCO",
+      "email_subject": "St%20Pete%20Gibbs%20VA%20Certification"
+    }
+  ]
+}
