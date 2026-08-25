@@ -56,23 +56,23 @@
       "campus": "Clearwater Campus",
       "photo": "",
       "email_label": "Email Trevor",
-      "email_subject": "Clearwater%20SVA%20Advisor%20Inquiry"
+      "email_subject": "McGilvrey.Trevor@spcollege.edu"
     },
     {
-      "role": "School Certifying Official",
-      "name": "TBD",
+      "role": "Veterans Services Student Support Advisor(SCO)",
+      "name": "Kara Lawernce",
       "campus": "Clearwater Campus",
       "photo": "",
       "email_label": "Contact SCO",
       "email_subject": "Clearwater%20VA%20Certification"
     },
     {
-      "role": "School Certifying Official",
-      "name": "TBD",
-      "campus": "Seminole Campus",
+      "role": "Veterans Services Student Support Advisor(SCO)",
+      "name": "Sarah Blackwood",
+      "campus": "Seminole Campus/Public Safety Academies",
       "photo": "",
-      "email_label": "Contact SCO",
-      "email_subject": "Seminole%20VA%20Certification"
+      "email_label": "Contact Sarah",
+      "email_subject": "blackwood.sarah@spcollege.edu"
     },
     {
       "role": "School Certifying Official",
@@ -83,12 +83,12 @@
       "email_subject": "Seminole%20VA%20Certification%202"
     },
     {
-      "role": "School Certifying Official",
-      "name": "TBD",
+      "role": "Veterans Services Student Support Advisor",
+      "name": "David Humpel",
       "campus": "St. Pete / Gibbs Campus",
       "photo": "",
-      "email_label": "Contact SCO",
-      "email_subject": "St%20Pete%20Gibbs%20VA%20Certification"
+      "email_label": "Contact David",
+      "email_subject": "humpel.david@spcollege.edu"
     }
   ]
 }
