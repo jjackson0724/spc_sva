@@ -1,7 +1,13 @@
-[build]
+﻿[build]
   publish = "."
 
 [[headers]]
   for = "/_data/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+    Content-Type = "application/json"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,412 +14,889 @@
             --white: #FFFFFF;
             --text-dark: #222222;
         }
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--light-gray); color: var(--text-dark); line-height: 1.6; }
 
-        .crisis-bar { background-color: var(--sva-red); color: var(--white); text-align: center; padding: 0.6rem 1rem; font-size: 0.95rem; font-weight: 600; position: relative; z-index: 1001; }
-        .crisis-bar a { color: var(--spc-gold); text-decoration: underline; font-weight: 700; }
-        .crisis-bar a:hover { color: var(--white); }
-
-        header { background-color: var(--spc-blue); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; }
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-container img { height: 45px; border-radius: 4px; }
-        .logo-text h1 { font-size: 1.2rem; font-weight: 700; color: var(--spc-gold); letter-spacing: 1px; }
-        .logo-text p { font-size: 0.8rem; color: var(--white); }
-        nav ul { display: flex; list-style: none; gap: 20px; flex-wrap: wrap; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-        nav a:hover { color: var(--spc-gold); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
-        @media(max-width: 768px) {
-            .hamburger { display: flex; }
-            nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--spc-blue); padding: 1rem 2rem; }
-            nav.open { display: block; }
-            nav ul { flex-direction: column; gap: 12px; }
-            header { position: relative; flex-wrap: wrap; }
+        html {
+            scroll-behavior: smooth;
         }
 
-        .hero { background: linear-gradient(rgba(0,56,101,0.88), rgba(10,25,47,0.92)), url('image_3.png') center/cover; color: var(--white); padding: 5rem 2rem; text-align: center; }
-        .hero h2 { font-size: 2.6rem; color: var(--spc-gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
-        .hero p { max-width: 800px; margin: 0 auto 2rem auto; font-size: 1.15rem; }
-        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: transform 0.2s; display: inline-block; }
-        .btn-primary { background-color: var(--spc-gold); color: var(--spc-blue); }
-        .btn-secondary { background-color: transparent; color: var(--white); border: 2px solid var(--white); }
-        .btn-accent { background-color: var(--sva-red); color: var(--white); }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-primary:hover { background-color: #d4a832; }
-        .btn-secondary:hover { background-color: var(--white); color: var(--spc-blue); }
-        .btn-accent:hover { background-color: #8b1325; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; }
-        .section-title { text-align: center; font-size: 2rem; color: var(--spc-blue); margin-bottom: 0.5rem; }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 2.5rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-        .card { background: var(--white); padding: 1.8rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--spc-blue); transition: transform 0.2s, box-shadow 0.2s; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-        .card h3 { color: var(--spc-blue); margin-bottom: 0.4rem; }
-        .member-name { font-weight: 700; color: var(--spc-blue); font-size: 1.05rem; margin-bottom: 0.2rem; }
+        /* Top Crisis Line Bar */
+        .crisis-bar {
+            background-color: var(--sva-red);
+            color: var(--white);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1001;
+        }
 
-        .feature-cta-box { background: linear-gradient(135deg, var(--spc-blue), var(--dark-navy)); color: var(--white); border-radius: 8px; padding: 2rem; text-align: center; margin-bottom: 3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-left: 6px solid var(--spc-gold); }
-        .feature-cta-box h3 { color: var(--spc-gold); font-size: 1.6rem; margin-bottom: 0.8rem; }
-        .feature-cta-box p { max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1.05rem; }
+        .crisis-bar a {
+            color: var(--spc-gold);
+            text-decoration: underline;
+            font-weight: 700;
+        }
 
-        .alert-banner { background-color: #FFF8E1; border-left: 5px solid var(--spc-gold); padding: 1rem 1.5rem; border-radius: 5px; margin-bottom: 2rem; font-size: 0.95rem; }
-        .alert-banner a { color: var(--spc-blue); font-weight: bold; }
+        .crisis-bar a:hover {
+            color: var(--white);
+        }
 
-        .contact-btn { display: inline-block; margin-top: 0.8rem; background-color: var(--spc-blue); color: var(--white); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; text-decoration: none; transition: background-color 0.2s; }
-        .contact-btn:hover { background-color: var(--sva-red); }
+        /* Header & Nav */
+        header {
+            background-color: var(--spc-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .leader-card { text-align: center; border-top: 4px solid var(--sva-red); }
-        .leader-photo-wrapper { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem auto; border: 3px solid var(--spc-gold); }
-        .leader-photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .leader-avatar-placeholder { width: 90px; height: 90px; background: var(--spc-blue); color: var(--spc-gold); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1rem auto; border: 3px solid var(--spc-gold); }
-        .leader-avatar-placeholder span { font-size: 1.6rem; }
-        .leader-avatar-placeholder small { font-size: 0.6rem; margin-top: 2px; opacity: 0.7; }
-        .leader-role { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sva-red); margin-bottom: 0.3rem; }
-        .sco-card { border-top: 4px solid var(--spc-gold); }
-        .sco-avatar-placeholder { width: 90px; height: 90px; background: var(--spc-gold); color: var(--spc-blue); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1rem auto; border: 3px solid var(--spc-blue); }
-        .sco-avatar-placeholder span { font-size: 1.6rem; }
-        .sco-avatar-placeholder small { font-size: 0.6rem; margin-top: 2px; opacity: 0.7; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height: 200px; background: linear-gradient(135deg, var(--spc-blue), var(--dark-navy)); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); transition: transform 0.2s; }
-        .gallery-item:hover { transform: translateY(-3px); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
-        .gallery-item .photo-icon { font-size: 2.5rem; margin-bottom: 0.5rem; opacity: 0.7; position: relative; z-index: 1; }
-        .gallery-item .photo-label { font-size: 0.8rem; opacity: 0.8; position: relative; z-index: 1; }
-        .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: var(--white); padding: 0.8rem 0.5rem 0.5rem; font-size: 0.85rem; text-align: center; z-index: 2; }
+        .logo-container img {
+            height: 45px;
+            border-radius: 4px;
+        }
 
-        .calendar-embed-box { background: var(--white); border-radius: 8px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-top: 4px solid var(--spc-gold); overflow: hidden; }
-        .calendar-embed-box iframe { width: 100%; height: 550px; border: none; border-radius: 6px; }
-        .calendar-placeholder { background: var(--white); border-radius: 8px; padding: 3rem 2rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-top: 4px solid var(--spc-gold); }
-        .calendar-placeholder .cal-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .calendar-placeholder h3 { color: var(--spc-blue); margin-bottom: 0.5rem; }
-        .calendar-placeholder p { color: #666; font-size: 0.9rem; max-width: 500px; margin: 0 auto; }
+        .logo-text h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--spc-gold);
+            letter-spacing: 1px;
+        }
 
-        .partner-card { border-top: 4px solid var(--spc-gold); background: var(--white); text-align: center; padding: 2rem; }
-        .partner-logo-wrapper { height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-        .partner-logo-wrapper img { max-height: 100%; max-width: 160px; object-fit: contain; }
-        .partner-badge { display: inline-block; background-color: var(--spc-blue); color: var(--spc-gold); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.8rem; text-transform: uppercase; }
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--white);
+        }
 
-        .form-container { max-width: 650px; margin: 0 auto; background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 0.4rem; color: var(--spc-blue); font-size: 0.95rem; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #ccc; border-radius: 6px; font-size: 0.95rem; transition: border-color 0.2s; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--spc-blue); }
-        .form-group textarea { height: 120px; resize: vertical; }
-        .btn-submit { width: 100%; padding: 1rem; background-color: var(--spc-blue); color: var(--white); border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s; }
-        .btn-submit:hover { background-color: var(--sva-red); }
-        .form-success { display: none; text-align: center; padding: 2rem; background: #e8f5e9; border-radius: 8px; color: #2e7d32; }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-        footer { background-color: var(--spc-blue); color: var(--white); padding: 3rem 2rem 1.5rem; margin-top: 2rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto 2rem auto; }
-        .footer-col h4 { color: var(--spc-gold); margin-bottom: 0.8rem; font-size: 1rem; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 0.4rem; }
-        .footer-col a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-        .footer-col a:hover { color: var(--spc-gold); }
-        .footer-col p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 0.4rem; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.6); max-width: 1100px; margin: 0 auto; }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--spc-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 56, 101, 0.85), rgba(10, 25, 47, 0.9)), url('image_3.png') center/cover;
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--spc-gold);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.15rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--spc-gold);
+            color: var(--spc-blue);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--sva-red);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            background-color: #d4a832;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--spc-blue);
+        }
+
+        .btn-accent:hover {
+            background-color: #8b1325;
+        }
+
+        /* Container & Section Styles */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--spc-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Feature CTA Box */
+        .feature-cta-box {
+            background: linear-gradient(135deg, var(--spc-blue), var(--dark-navy));
+            color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-left: 6px solid var(--spc-gold);
+        }
+
+        .feature-cta-box h3 {
+            color: var(--spc-gold);
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-cta-box p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.05rem;
+        }
+
+        /* Cards Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--spc-blue);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--spc-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .card .member-name {
+            font-weight: 700;
+            color: var(--spc-blue);
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Calendar Embed Box */
+        .calendar-embed-box {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--spc-gold);
+            overflow: hidden;
+        }
+
+        .calendar-embed-box iframe {
+            width: 100%;
+            height: 550px;
+            border: none;
+            border-radius: 6px;
+        }
+
+        /* Photo Gallery Styling */
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            height: 200px;
+            background-color: #ddd;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Partner Cards & Logos */
+        .partner-card {
+            border-top: 4px solid var(--spc-gold);
+            background: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .partner-logo-wrapper {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .partner-logo-wrapper img {
+            max-height: 100%;
+            max-width: 160px;
+            object-fit: contain;
+        }
+
+        .partner-badge {
+            display: inline-block;
+            background-color: var(--spc-blue);
+            color: var(--spc-gold);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Leadership Grid */
+        .leader-card {
+            text-align: center;
+            border-top: 4px solid var(--sva-red);
+        }
+
+        .leader-avatar {
+            width: 70px;
+            height: 70px;
+            background: var(--spc-blue);
+            color: var(--spc-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--spc-blue);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--sva-red);
+            color: var(--white);
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background-color: #FFF3CD;
+            border-left: 5px solid var(--spc-gold);
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            color: #856404;
+            font-weight: 500;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--sva-red);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #8b1325;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            padding: 3rem 1.5rem 1rem 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: var(--spc-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #223344;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script></head>
+</head>
 <body>
 
-<div class="crisis-bar">
-    ðŸ†˜ <strong>Need immediate support?</strong> Talk to the <strong>Veterans Crisis Line</strong> now:
-    Dial <a href="tel:988">988 (Press 1)</a> | Text <a href="sms:838255">838255</a> | Visit <a href="https://www.veteranscrisisline.net" target="_blank" rel="noopener">VeteransCrisisLine.net â†—</a>
-</div>
-
-<header>
-    <div class="logo-container">
-        <img src="image.png" alt="SVA Logo" onerror="this.style.display='none'">
-        <img src="image_2.png" alt="SPC Titans Logo" onerror="this.style.display='none'">
-        <div class="logo-text">
-            <h1>SVA SPC CHAPTER</h1>
-            <p>St. Petersburg College</p>
-        </div>
+    <!-- Top Veterans Crisis Line Banner -->
+    <div class="crisis-bar">
+        🆘 <strong>Need immediate support?</strong> Talk to the <strong>Veterans Crisis Line</strong> now: Dial <a href="tel:988">988 (Press 1)</a> | Text <a href="sms:838255">838255</a> | Visit <a href="https://www.veteranscrisisline.net/" target="_blank" rel="noopener">VeteransCrisisLine.net ↗</a>
     </div>
-    <button class="hamburger" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
-    <nav>
-        <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#benefits">Get Benefits Started</a></li>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#leadership">Leadership</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#events">Calendar</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#affiliations">Affiliations</a></li>
-            <li><a href="#join">Join Chapter</a></li>
-        </ul>
-    </nav>
-</header>
 
-<section class="hero" id="about">
-    <h2>Serving Those Who Served on Campus</h2>
-    <p>The St. Petersburg College SVA Chapter provides a supportive community, student advocacy, and essential academic resources for veterans, active duty members, and military families.</p>
-    <div class="btn-group">
-        <a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="btn btn-primary">ðŸŽ“ Get Started With VA Benefits</a>
-        <a href="#resources" class="btn btn-secondary">Explore Resources</a>
-        <a href="#join" class="btn btn-accent">Connect With SVA</a>
-    </div>
-</section>
-
-<section id="mission" class="container">
-    <h2 class="section-title">OUR MISSION</h2>
-    <p class="section-subtitle">Empowering St. Petersburg College veterans, service members, and military families through community connection, campus advocacy, and pathways to academic and professional success.</p>
-    <div class="grid-3">
-        <div class="card"><div class="card-icon">ðŸ¤</div><h3>Community & Connection</h3><p>Building a supportive, welcoming environment where veterans, active duty members, and military dependents connect through shared experiences, social gatherings, and campus events.</p></div>
-        <div class="card"><div class="card-icon">âš–ï¸</div><h3>Advocacy & Support</h3><p>Serving as a unified voice for all military-connected students â€” ensuring smooth access to education benefits, campus veteran services, and dedicated advising.</p></div>
-        <div class="card"><div class="card-icon">ðŸŽ“</div><h3>Academic & Career Success</h3><p>Equipping our members and military families with professional mentorship, leadership opportunities, and networking to thrive at SPC and beyond.</p></div>
-    </div>
-</section>
-
-<section id="benefits" class="container" style="padding-top:1rem">
-    <div class="feature-cta-box">
-        <h3>Ready to Use Your Military & Veteran Benefits at SPC?</h3>
-        <p>Whether you are using the GI BillÂ®, VR&E (Ch. 31), Tuition Assistance, or Dependent Benefits (Ch. 35), follow SPC's official step-by-step checklist to submit your paperwork and get certified smoothly.</p>
-        <a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="btn btn-primary">ðŸš€ Official SPC Veterans Get Started Guide â†—</a>
-    </div>
-</section>
-
-<!-- DYNAMIC ALERT - controlled by CMS -->
-<section id="resources" class="container">
-    <h2 class="section-title">TITAN VETERAN RESOURCES</h2>
-    <p class="section-subtitle">Comprehensive guidance for VA benefits, branch programs, scholarships, and campus support.</p>
-    <div id="alert-banner-container"></div>
-    <div class="grid-3">
-        <div class="card"><h3>ðŸ“œ SPC VA Benefits Checklist</h3><p>Step-by-step enrollment checklist for Chapter 33 (Post-9/11), Chapter 31 (VR&E), Chapter 35 (DEA), and Chapter 30.</p><div><a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="contact-btn">ðŸ“‹ View Benefits Checklist â†—</a></div></div>
-        <div class="card"><h3>ðŸ›ï¸ Official VA Portal (VA.gov)</h3><p>Direct portal access to manage healthcare, track education benefits, apply for disability ratings, and request military records.</p><div><a href="https://www.va.gov" target="_blank" rel="noopener" class="contact-btn">ðŸŒ Visit VA.gov â†—</a></div></div>
-        <div class="card"><h3>ðŸª– Branch Programs & TA</h3><p>Tuition Assistance (TA) for Active Duty, Reserve, Guard, MyCAA for spouses, and JST credit evaluations.</p></div>
-        <div class="card"><h3>ðŸŽ“ Scholarships & Waivers</h3><p>SPC Foundation military grants, C.W. Bill Young Out-of-State Waiver, Purple Heart Waiver, and Disabled Veteran waivers.</p></div>
-        <div class="card"><h3>ðŸ’¼ Career & Academic Support</h3><p>MOS civilian resume translation, campus tutoring networks, academic advising, and local employment connections.</p></div>
-        <div class="card"><h3>ðŸ¥ Wellness & Family Support</h3><p>Campus Veterans Centers, Bay Pines VA resources, crisis support networks, and military family relief funds.</p></div>
-    </div>
-</section>
-
-<!-- LEADERSHIP - dynamically rendered from JSON -->
-<section id="leadership" style="background-color:var(--white);padding:3rem 0">
-    <div class="container">
-        <h2 class="section-title">CHAPTER LEADERSHIP & ADVISORS</h2>
-        <p class="section-subtitle">Meet the student officers and campus School Certifying Officials (SCOs) dedicated to serving our SPC SVA community.</p>
-        <h3 style="color:var(--spc-blue);margin-bottom:1.5rem;text-align:center">Executive Officers</h3>
-        <div class="grid-3" id="officers-grid" style="margin-bottom:3rem"></div>
-        <h3 style="color:var(--spc-blue);margin-bottom:1.5rem;text-align:center">School Certifying Officials (SCOs) & Chapter Advisors</h3>
-        <div class="grid-3" id="advisors-grid"></div>
-    </div>
-</section>
-
-<!-- CALENDAR - dynamically rendered from JSON -->
-<section id="events" style="background-color:var(--white);padding:3rem 0">
-    <div class="container">
-        <h2 class="section-title">CHAPTER CALENDAR & UPCOMING EVENTS</h2>
-        <p class="section-subtitle">Stay up to date with our general meetings, socials, and campus veteran events in real time.</p>
-        <div id="calendar-container">
-            <div class="calendar-placeholder">
-                <div class="cal-icon">ðŸ“…</div>
-                <h3>Calendar Coming Soon</h3>
-                <p>Our chapter calendar is being set up. Check back soon for upcoming meetings, socials, and campus veteran events.</p>
-                <a href="#join" class="btn btn-primary" style="margin-top:1.5rem;display:inline-block">Join Chapter to Get Updates</a>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo-container">
+            <img src="image.png" alt="SVA Logo" onerror="this.src='https://via.placeholder.com/45?text=SVA'">
+            <img src="image_2.png" alt="SPC Titans Logo" onerror="this.src='https://via.placeholder.com/45?text=SPC'">
+            <div class="logo-text">
+                <h1>SVA SPC CHAPTER</h1>
+                <p>St. Petersburg College</p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- GALLERY - dynamically renders Google Photos link from JSON -->
-<section id="gallery" class="container">
-    <h2 class="section-title">CHAPTER LIFE IN ACTION</h2>
-    <p class="section-subtitle">Highlights from our campus events, community service projects, and socials.</p>
-    <div class="grid-4" style="margin-bottom:2rem">
-        <div class="gallery-item"><div class="photo-icon">ðŸ“¸</div><div class="photo-label">Photo coming soon</div><div class="gallery-caption">Monthly Campus Social</div></div>
-        <div class="gallery-item"><div class="photo-icon">ðŸ“¸</div><div class="photo-label">Photo coming soon</div><div class="gallery-caption">Veterans Day Ceremony</div></div>
-        <div class="gallery-item"><div class="photo-icon">ðŸ“¸</div><div class="photo-label">Photo coming soon</div><div class="gallery-caption">Community Outreach</div></div>
-        <div class="gallery-item"><div class="photo-icon">ðŸ“¸</div><div class="photo-label">Photo coming soon</div><div class="gallery-caption">Annual Chapter Banquet</div></div>
-    </div>
-    <div style="text-align:center">
-        <a id="photos-link" href="#" target="_blank" rel="noopener" class="btn btn-primary">ðŸ“¸ View Complete Photo Album (Google Photos)</a>
-    </div>
-</section>
-
-<section id="affiliations" style="background-color:#EAEFF5;padding:3rem 0">
-    <div class="container">
-        <h2 class="section-title">COMMUNITY VETERAN ORGANIZATIONS</h2>
-        <p class="section-subtitle">Proudly partnering with local veteran organizations to expand our network, resources, and community outreach.</p>
-        <div class="grid-2">
-            <div class="card partner-card">
-                <div class="partner-logo-wrapper"><img src="image_5.png" alt="American Legion Emblem" onerror="this.parentElement.innerHTML='<div style=font-size:3rem>ðŸŽ–ï¸</div>'"></div>
-                <span class="partner-badge">Veteran Organization</span>
-                <h3>American Legion Post 275</h3>
-                <p><strong>Dunedin, FL</strong></p>
-                <p style="margin-top:0.5rem;margin-bottom:1rem">Partnering with American Legion Post 275 to foster community connection, facilitate sponsorship opportunities, and support local veteran initiatives across Pinellas County.</p>
-                <div><a href="https://alpost275.com/" target="_blank" rel="noopener" class="contact-btn">ðŸŒ Visit Post 275 Website</a></div>
-            </div>
-            <div class="card partner-card">
-                <div class="partner-logo-wrapper"><img src="image_4.png" alt="Club-214 Logo" onerror="this.parentElement.innerHTML='<div style=font-size:3rem>ðŸ›¡ï¸</div>'"></div>
-                <span class="partner-badge">Veteran Organization</span>
-                <h3>Club-214</h3>
-                <p><strong>Land & Sea Network</strong></p>
-                <p style="margin-top:0.5rem;margin-bottom:1rem">Working alongside Club-214 to build strong camaraderie, support transition programs, and engage military-connected students in active community service and social events.</p>
-                <div><a href="https://www.club214landsea.org/" target="_blank" rel="noopener" class="contact-btn">ðŸŒ Visit Club-214 Website</a></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="join" class="container">
-    <h2 class="section-title">GET CONNECTED WITH SVA SPC</h2>
-    <p class="section-subtitle">Complete the form below to join the chapter roster or reach out to our executive board.</p>
-    <div class="form-container">
-        <form id="join-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <input type="hidden" name="_subject" value="New SVA SPC Chapter Inquiry">
-            <div class="form-group"><label for="fullname">Full Name</label><input type="text" id="fullname" name="name" required placeholder="First and Last Name"></div>
-            <div class="form-group"><label for="email">SPC Student Email</label><input type="email" id="email" name="email" required placeholder="student@live.spcollege.edu"></div>
-            <div class="form-group">
-                <label for="affiliation">Military Affiliation</label>
-                <select id="affiliation" name="affiliation" required>
-                    <option value="" disabled selected>Select option...</option>
-                    <option>Student Veteran</option>
-                    <option>Active Duty / Reserve / Guard</option>
-                    <option>Military Dependent / Ch. 35 DEA</option>
-                    <option>Faculty / Staff / Supporter</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="campus">Primary Campus</label>
-                <select id="campus" name="campus" required>
-                    <option value="" disabled selected>Select campus...</option>
-                    <option>Clearwater Campus</option>
-                    <option>St. Pete / Gibbs Campus</option>
-                    <option>Seminole Campus</option>
-                    <option>Tarpon Springs Campus</option>
-                    <option>SPC Online</option>
-                </select>
-            </div>
-            <div class="form-group"><label for="message">Message or Questions (Optional)</label><textarea id="message" name="message" placeholder="How can the chapter help you?"></textarea></div>
-            <button type="submit" class="btn-submit">Join Chapter / Submit</button>
-        </form>
-        <div class="form-success" id="form-success"><h3>âœ… Thank You!</h3><p>Your information has been submitted. A chapter representative will be in touch soon.</p></div>
-    </div>
-</section>
-
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col"><h4>SVA SPC</h4><p>Serving Those Who Served on Campus.</p><p>Student Veterans of America Chapter at St. Petersburg College.</p></div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
+        <nav>
             <ul>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" style="color:var(--spc-gold);font-weight:bold">Get Started With Benefits â†—</a></li>
-                <li><a href="#mission">Our Mission</a></li>
-                <li><a href="#leadership">Leadership Team</a></li>
-                <li><a href="#resources">Titan Resources</a></li>
-                <li><a href="#events">Upcoming Events</a></li>
-                <li><a href="#gallery">Photo Gallery</a></li>
+                <li><a href="#benefits">Get Benefits Started</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#events">Calendar</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#affiliations">Affiliations</a></li>
-                <li><a href="https://www.va.gov" target="_blank" rel="noopener">U.S. Dept of Veterans Affairs â†—</a></li>
+                <li><a href="#join">Join Chapter</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="about">
+        <h2>SERVING THOSE WHO SERVED ON CAMPUS</h2>
+        <p>The St. Petersburg College SVA Chapter provides a supportive community, student advocacy, and essential academic resources for veterans, active duty members, and military families.</p>
+        <div class="btn-group">
+            <a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="btn btn-primary">🎓 Get Started With VA Benefits</a>
+            <a href="#resources" class="btn btn-secondary">Explore Resources</a>
+            <a href="#join" class="btn btn-accent">Connect With SVA</a>
         </div>
-        <div class="footer-col"><h4>Veteran Organizations</h4><ul><li><a href="https://alpost275.com/" target="_blank" rel="noopener">American Legion Post 275 â†—</a></li><li><a href="https://www.club214landsea.org/" target="_blank" rel="noopener">Club-214 â†—</a></li></ul></div>
-        <div class="footer-col"><h4>Campus Veteran Centers</h4><ul><li>Clearwater Campus</li><li>St. Pete / Gibbs Campus</li><li>Seminole Campus</li></ul></div>
-    </div>
-    <div class="footer-bottom">
-        <p><strong>Disclaimer:</strong> The SVA SPC Chapter is an officially recognized student organization at St. Petersburg College. GI BillÂ® is a registered trademark of the U.S. Department of Veterans Affairs.</p>
-        <p>Â© St. Petersburg College Student Veterans of America Chapter. All rights reserved.</p>
-    </div>
-</footer>
+    </section>
 
-<script>
-// Mobile nav
-document.querySelectorAll('nav a').forEach(l => l.addEventListener('click', () => document.querySelector('nav').classList.remove('open')));
+    <!-- Mission Section -->
+    <section id="mission" class="container">
+        <h2 class="section-title">OUR MISSION</h2>
+        <p class="section-subtitle">Empowering St. Petersburg College veterans, service members, and military families through community connection, campus advocacy, and pathways to academic and professional success.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Community & Connection</h3>
+                <p>Building a supportive, welcoming environment where veterans, active duty members, and military dependents connect through shared experiences, social gatherings, and campus events.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚖️</div>
+                <h3>Advocacy & Support</h3>
+                <p>Serving as a unified voice for all military-connected students—ensuring smooth access to education benefits, campus veteran services, and dedicated advising.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Academic & Career Success</h3>
+                <p>Equipping our members and military families with professional mentorship, leadership opportunities, and networking to thrive at SPC and beyond.</p>
+            </div>
+        </div>
+    </section>
 
-// Load all dynamic content from JSON files
-async function loadSiteData() {
-    try {
-        // Load settings
-        const settingsRes = await fetch('/_data/settings.json');
-        const settings = await settingsRes.json();
+    <!-- Get Started with VA Benefits Section -->
+    <section id="benefits" class="container" style="padding-top: 1rem;">
+        <div class="feature-cta-box">
+            <h3>Ready to Use Your Military & Veteran Benefits at SPC?</h3>
+            <p>Whether you are using the GI Bill®, VR&E (Ch. 31), Tuition Assistance, or Dependent Benefits (Ch. 35), follow SPC's official step-by-step checklist to submit your paperwork and get certified smoothly.</p>
+            <a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="btn btn-primary">🚀 Official SPC Veterans Get Started Guide ↗</a>
+        </div>
+    </section>
 
-        // Render alert banner
-        if (settings.alert_active && settings.alert_message) {
-            document.getElementById('alert-banner-container').innerHTML = `
-                <div class="alert-banner">
-                    ðŸ“¢ <strong>Alert:</strong> ${settings.alert_message}
-                    ${settings.alert_link ? `<a href="${settings.alert_link}" target="_blank" rel="noopener"> ${settings.alert_link_text || 'Learn more â†—'}</a>` : ''}
-                </div>`;
-        }
+    <!-- Leadership Section -->
+    <section id="leadership" style="background-color: var(--white); padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">CHAPTER LEADERSHIP & ADVISORS</h2>
+            <p class="section-subtitle">Meet the student officers and campus School Certifying Officials (SCOs) dedicated to serving our SPC SVA community.</p>
+            
+            <!-- Student Executive Officers -->
+            <h3 style="color: var(--spc-blue); margin-bottom: 1.5rem; text-align: center;">Executive Officers</h3>
+            <div class="grid-3" style="margin-bottom: 3rem;">
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Chapter President</h3>
+                    <p class="member-name">April Cervantes</p>
+                    <p>Executive Leader</p>
+                    <small>St. Petersburg College</small>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Vice President</h3>
+                    <p>Operations & Events</p>
+                    <small>St. Petersburg College</small>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Treasurer</h3>
+                    <p>Finance & Budget</p>
+                    <small>St. Petersburg College</small>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Secretary</h3>
+                    <p>Communications & Records</p>
+                    <small>St. Petersburg College</small>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Sergeant at Arms</h3>
+                    <p>Protocol & Logistics</p>
+                    <small>St. Petersburg College</small>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SPC</div>
+                    <h3>Social Media Chair</h3>
+                    <p>Digital Outreach</p>
+                    <small>St. Petersburg College</small>
+                </div>
+            </div>
 
-        // Render calendar
-        if (settings.calendar_embed) {
-            document.getElementById('calendar-container').innerHTML = `
-                <div class="calendar-embed-box">${settings.calendar_embed}</div>`;
-        }
+            <!-- Campus SCOs (Advisors) -->
+            <h3 style="color: var(--spc-blue); margin-bottom: 1.5rem; text-align: center;">School Certifying Officials (SCOs) & Chapter Advisors</h3>
+            <div class="grid-3">
+                <!-- Clearwater Campus (Trevor McGilvrey + 1 SCO) -->
+                <div class="card leader-card">
+                    <div class="leader-avatar">SCO</div>
+                    <h3>Clearwater SCO</h3>
+                    <p class="member-name">Trevor McGilvrey</p>
+                    <p><strong>Chapter Advisor</strong></p>
+                    <small>Clearwater Campus</small>
+                    <div><a href="mailto:veteranservices@spcollege.edu?subject=Clearwater%20SVA%20Advisor%20Inquiry" class="contact-btn">✉️ Email Trevor</a></div>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SCO</div>
+                    <h3>Clearwater SCO</h3>
+                    <p>School Certifying Official</p>
+                    <small>Clearwater Campus</small>
+                    <div><a href="mailto:veteranservices@spcollege.edu?subject=Clearwater%20VA%20Certification" class="contact-btn">✉️ Contact SCO</a></div>
+                </div>
 
-        // Render Google Photos link
-        if (settings.photos_url) {
-            document.getElementById('photos-link').href = settings.photos_url;
-        }
+                <!-- Seminole Campus (2 SCOs) -->
+                <div class="card leader-card">
+                    <div class="leader-avatar">SCO</div>
+                    <h3>Seminole SCO</h3>
+                    <p>School Certifying Official</p>
+                    <small>Seminole Campus</small>
+                    <div><a href="mailto:veteranservices@spcollege.edu?subject=Seminole%20VA%20Certification" class="contact-btn">✉️ Contact SCO</a></div>
+                </div>
+                <div class="card leader-card">
+                    <div class="leader-avatar">SCO</div>
+                    <h3>Seminole SCO</h3>
+                    <p>School Certifying Official</p>
+                    <small>Seminole Campus</small>
+                    <div><a href="mailto:veteranservices@spcollege.edu?subject=Seminole%20VA%20Certification" class="contact-btn">✉️ Contact SCO</a></div>
+                </div>
 
-    } catch(e) { console.log('Settings load error:', e); }
+                <!-- St. Pete / Gibbs Campus (1 SCO) -->
+                <div class="card leader-card">
+                    <div class="leader-avatar">SCO</div>
+                    <h3>St. Pete / Gibbs SCO</h3>
+                    <p>School Certifying Official</p>
+                    <small>St. Pete / Gibbs Campus</small>
+                    <div><a href="mailto:veteranservices@spcollege.edu?subject=St%20Pete%20Gibbs%20VA%20Certification" class="contact-btn">✉️ Contact SCO</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    try {
-        // Load officers
-        const officersRes = await fetch('/_data/officers.json');
-        const data = await officersRes.json();
+    <!-- Resources Section -->
+    <section id="resources" class="container">
+        <h2 class="section-title">TITAN VETERAN RESOURCES</h2>
+        <p class="section-subtitle">Comprehensive guidance for VA benefits, branch programs, scholarships, and campus support.</p>
+        
+        <div class="alert-banner">
+            📢 <strong>Alert:</strong> Fall Term VA Certification Requests are open! Visit the official <a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener">SPC Get Started Guide ↗</a> before registration deadlines.
+        </div>
 
-        // Render executive officers
-        const officersGrid = document.getElementById('officers-grid');
-        officersGrid.innerHTML = data.officers.map(o => `
-            <div class="card leader-card">
-                ${o.photo
-                    ? `<div class="leader-photo-wrapper"><img src="${o.photo}" alt="${o.name}" onerror="this.parentElement.innerHTML='<div class=leader-avatar-placeholder><span>ðŸ“·</span><small>Add Photo</small></div>'"></div>`
-                    : `<div class="leader-avatar-placeholder"><span>ðŸ“·</span><small>Add Photo</small></div>`
-                }
-                <div class="leader-role">${o.role}</div>
-                <p class="member-name">${o.name}</p>
-                <p style="font-size:0.9rem;color:#555">${o.description}</p>
-                <small style="color:#888">${o.campus}</small>
-                <div><a href="mailto:veteranservices@spcollege.edu?subject=${o.email_subject}" class="contact-btn">âœ‰ï¸ Contact</a></div>
-            </div>`).join('');
+        <div class="grid-3">
+            <div class="card">
+                <h3>📜 SPC VA Benefits Checklist</h3>
+                <p>Step-by-step enrollment checklist for Chapter 33 (Post-9/11), Chapter 31 (VR&E), Chapter 35 (DEA), and Chapter 30.</p>
+                <div><a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" class="contact-btn">📋 View Benefits Checklist ↗</a></div>
+            </div>
+            <div class="card">
+                <h3>🏛️ Official VA Portal (VA.gov)</h3>
+                <p>Direct portal access to manage healthcare, track education benefits, apply for disability ratings, and request military records.</p>
+                <div><a href="https://www.va.gov" target="_blank" rel="noopener" class="contact-btn">🌐 Visit VA.gov ↗</a></div>
+            </div>
+            <div class="card">
+                <h3>🛡️ Branch Programs & TA</h3>
+                <p>Tuition Assistance (TA) for Active Duty, Reserve, Guard, MyCAA for spouses, and JST credit evaluations.</p>
+            </div>
+            <div class="card">
+                <h3>🎓 Scholarships & Waivers</h3>
+                <p>SPC Foundation military grants, C.W. Bill Young Out-of-State Waiver, Purple Heart Waiver, and Disabled Veteran waivers.</p>
+            </div>
+            <div class="card">
+                <h3>💼 Career & Academic Support</h3>
+                <p>MOS civilian resume translation, campus tutoring networks, academic advising, and local employment connections.</p>
+            </div>
+            <div class="card">
+                <h3>🏥 Wellness & Family Support</h3>
+                <p>Campus Veterans Centers, Bay Pines VA resources, crisis support networks, and military family relief funds.</p>
+            </div>
+        </div>
+    </section>
 
-        // Render advisors
-        const advisorsGrid = document.getElementById('advisors-grid');
-        advisorsGrid.innerHTML = data.advisors.map(a => `
-            <div class="card leader-card sco-card">
-                ${a.photo
-                    ? `<div class="leader-photo-wrapper"><img src="${a.photo}" alt="${a.name}" onerror="this.parentElement.innerHTML='<div class=sco-avatar-placeholder><span>ðŸ“·</span><small>Add Photo</small></div>'"></div>`
-                    : `<div class="sco-avatar-placeholder"><span>ðŸ“·</span><small>Add Photo</small></div>`
-                }
-                <div class="leader-role" style="color:var(--spc-blue)">${a.role}</div>
-                <p class="member-name">${a.name}</p>
-                <small style="color:#888">${a.campus}</small>
-                <div><a href="mailto:veteranservices@spcollege.edu?subject=${a.email_subject}" class="contact-btn">âœ‰ï¸ ${a.email_label}</a></div>
-            </div>`).join('');
+    <!-- Integrated Dynamic Calendar Section -->
+    <section id="events" style="background-color: var(--white); padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">CHAPTER CALENDAR & UPCOMING EVENTS</h2>
+            <p class="section-subtitle">Stay up to date with our general meetings, socials, and campus veteran events in real time.</p>
+            
+            <div class="calendar-embed-box">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&src=en.usa%23holiday%40group.v.calendar.google.com&color=%003865" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+    </section>
 
-    } catch(e) { console.log('Officers load error:', e); }
-}
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="container">
+        <h2 class="section-title">CHAPTER LIFE IN ACTION</h2>
+        <p class="section-subtitle">Highlights from our campus events, community service projects, and socials.</p>
+        
+        <div class="grid-4" style="margin-bottom: 2rem;">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Campus+Social" alt="SVA Campus Social">
+                <div class="gallery-caption">Monthly Campus Social</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Veterans+Day" alt="Veterans Day Observance">
+                <div class="gallery-caption">Veterans Day Ceremony</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Community+Service" alt="Community Service Event">
+                <div class="gallery-caption">Community Outreach</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Banquet" alt="SVA Banquet">
+                <div class="gallery-caption">Annual Chapter Banquet</div>
+            </div>
+        </div>
 
-loadSiteData();
+        <div style="text-align: center;">
+            <a href="https://photos.google.com" target="_blank" rel="noopener" class="btn btn-primary">📸 View Complete Photo Album (Google Photos)</a>
+        </div>
+    </section>
 
-// Form
-const form = document.getElementById('join-form');
-if (form) {
-    form.addEventListener('submit', function() {
-        if (form.action.includes('YOUR_FORM_ID')) return;
-        setTimeout(() => {
-            form.style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-        }, 800);
-    });
-}
-</script>
+    <!-- Community Affiliations Section -->
+    <section id="affiliations" style="background-color: #EAEFF5; padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">COMMUNITY VETERAN ORGANIZATIONS</h2>
+            <p class="section-subtitle">Proudly partnering with local veteran organizations to expand our network, resources, and community outreach.</p>
+            
+            <div class="grid-2">
+                <div class="card partner-card">
+                    <div class="partner-logo-wrapper">
+                        <img src="image_5.png" alt="American Legion Emblem" onerror="this.src='https://via.placeholder.com/120?text=American+Legion'">
+                    </div>
+                    <span class="partner-badge">Veteran Organization</span>
+                    <h3>American Legion Post 275</h3>
+                    <p><strong>Dunedin, FL</strong></p>
+                    <p style="margin-top: 0.5rem; margin-bottom: 1rem;">Partnering with American Legion Post 275 to foster community connection, facilitate sponsorship opportunities, and support local veteran initiatives across Pinellas County.</p>
+                    <div><a href="https://alpost275.com/" target="_blank" rel="noopener" class="contact-btn">🌐 Visit Post 275 Website</a></div>
+                </div>
+                
+                <div class="card partner-card">
+                    <div class="partner-logo-wrapper">
+                        <img src="image_4.png" alt="Club-214 Logo" onerror="this.src='https://via.placeholder.com/120?text=Club-214'">
+                    </div>
+                    <span class="partner-badge">Veteran Organization</span>
+                    <h3>Club-214</h3>
+                    <p><strong>Land & Sea Network</strong></p>
+                    <p style="margin-top: 0.5rem; margin-bottom: 1rem;">Working alongside Club-214 to build strong camaraderie, support transition programs, and engage military-connected students in active community service and social events.</p>
+                    <div><a href="https://www.club214landsea.org/" target="_blank" rel="noopener" class="contact-btn">🌐 Visit Club-214 Website</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="join" class="container">
+        <h2 class="section-title">GET CONNECTED WITH SVA SPC</h2>
+        <p class="section-subtitle">Complete the form below to join the chapter roster or reach out to our executive board.</p>
+        
+        <div class="form-container">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="name" required placeholder="First and Last Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">SPC Student Email</label>
+                    <input type="email" id="email" name="email" required placeholder="student@live.spcollege.edu">
+                </div>
+
+                <div class="form-group">
+                    <label for="affiliation">Military Affiliation</label>
+                    <select id="affiliation" name="affiliation" required>
+                        <option value="" disabled selected>Select option...</option>
+                        <option value="Student Veteran">Student Veteran</option>
+                        <option value="Active Duty / Reserve / Guard">Active Duty / Reserve / Guard</option>
+                        <option value="Military Dependent / Ch. 35 DEA">Military Dependent / Ch. 35 DEA</option>
+                        <option value="Faculty / Staff / Supporter">Faculty / Staff / Supporter</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="campus">Primary Campus</label>
+                    <select id="campus" name="campus" required>
+                        <option value="" disabled selected>Select campus...</option>
+                        <option value="Clearwater Campus">Clearwater Campus</option>
+                        <option value="St. Pete / Gibbs Campus">St. Pete / Gibbs Campus</option>
+                        <option value="Seminole Campus">Seminole Campus</option>
+                        <option value="Tarpon Springs Campus">Tarpon Springs Campus</option>
+                        <option value="SPC Online">SPC Online</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message or Questions (Optional)</label>
+                    <textarea id="message" name="message" placeholder="How can the chapter help you?"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Join Chapter / Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SVA SPC</h4>
+                <p>Serving Those Who Served on Campus.</p>
+                <p>Student Veterans of America Chapter at St. Petersburg College.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="https://www.spcollege.edu/current-students/student-affairs/student-support-resources/veterans-services/veterans-get-started" target="_blank" rel="noopener" style="color: var(--spc-gold); font-weight: bold;">Get Started With Benefits ↗</a></li>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#leadership">Leadership Team</a></li>
+                    <li><a href="#resources">Titan Resources</a></li>
+                    <li><a href="#events">Upcoming Events</a></li>
+                    <li><a href="#gallery">Photo Gallery</a></li>
+                    <li><a href="#affiliations">Affiliations</a></li>
+                    <li><a href="https://www.va.gov" target="_blank" rel="noopener">U.S. Dept of Veterans Affairs (VA.gov) ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Veteran Organizations</h4>
+                <ul>
+                    <li><a href="https://alpost275.com/" target="_blank" rel="noopener">American Legion Post 275 ↗</a></li>
+                    <li><a href="https://www.club214landsea.org/" target="_blank" rel="noopener">Club-214 ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Campus Veteran Centers</h4>
+                <ul>
+                    <li>Clearwater Campus</li>
+                    <li>St. Pete / Gibbs Campus</li>
+                    <li>Seminole Campus</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p><strong>Disclaimer:</strong> The SVA SPC Chapter is an officially recognized student organization at St. Petersburg College. GI Bill® is a registered trademark of the U.S. Department of Veterans Affairs.</p>
+            <p>© St. Petersburg College Student Veterans of America Chapter. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
-
