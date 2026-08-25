@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "photos"
+public_folder: "/photos"
+
+collections:
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Alerts & Integrations"
+        name: "settings"
+        file: "_data/settings.json"
+        fields:
+          - label: "Show Alert Banner"
+            name: "alert_active"
+            widget: "boolean"
+            default: true
+            hint: "Turn the top alert banner on or off"
+          - label: "Alert Message Text"
+            name: "alert_message"
+            widget: "string"
+            hint: "The main alert text shown in the yellow banner"
+          - label: "Alert Link URL"
+            name: "alert_link"
+            widget: "string"
+            hint: "Where the link in the alert goes"
+          - label: "Alert Link Text"
+            name: "alert_link_text"
+            widget: "string"
+            hint: "The clickable text of the alert link"
+          - label: "Google Photos Album URL"
+            name: "photos_url"
+            widget: "string"
+            required: false
+            hint: "Paste the shared Google Photos album URL here"
+          - label: "Google Calendar Embed Code"
+            name: "calendar_embed"
+            widget: "text"
+            required: false
+            hint: "Paste the full Google Calendar iframe embed code here"
+
+  - name: "leadership"
+    label: "Officers & Advisors"
+    files:
+      - label: "Leadership Roster"
+        name: "officers"
+        file: "_data/officers.json"
+        fields:
+          - label: "Executive Officers"
+            name: "officers"
+            widget: "list"
+            fields:
+              - {label: "Role Title", name: "role", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Campus", name: "campus", widget: "string"}
+              - {label: "Email Subject (no spaces)", name: "email_subject", widget: "string"}
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Upload a headshot photo"
+          - label: "SCOs & Advisors"
+            name: "advisors"
+            widget: "list"
+            fields:
+              - {label: "Role Title", name: "role", widget: "string"}
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Campus", name: "campus", widget: "string"}
+              - {label: "Email Button Label", name: "email_label", widget: "string"}
+              - {label: "Email Subject (no spaces)", name: "email_subject", widget: "string"}
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Upload a headshot photo"
+
+  - name: "gallery"
+    label: "Photo Gallery"
+    folder: "_gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Caption", name: "title", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Event Date", name: "date", widget: "date"}
+      - {label: "Category", name: "category", widget: "select", options: ["Campus Social", "Veterans Day", "Community Outreach", "Chapter Meeting", "Banquet", "Other"], default: "Other"}

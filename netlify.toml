@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/_data/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
